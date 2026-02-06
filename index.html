@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>HAMZAH.CORP STORE</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Inter&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <img class="logo" src="https://c.top4top.io/p_36899uvj70.png">
+  <h1>HAMZAH<span>.CORP</span></h1>
+
+  <nav>
+    <button onclick="scrollToId('produk')">Produk</button>
+    <button onclick="scrollToId('service')">Service</button>
+    <button id="openCart">
+      <i class="fa-solid fa-cart-shopping"></i>
+      <span id="cartCount">0</span>
+    </button>
+  </nav>
+</header>
+
+<main>
+
+<section id="produk">
+  <h2>Produk Digital</h2>
+  <div id="productList" class="grid"></div>
+</section>
+
+<section id="service" class="card">
+  <h2 id="serviceTitle">Service & Support</h2>
+  <p class="soft">Custom tools · Private request</p>
+  <input placeholder="Email">
+  <textarea placeholder="Pesan"></textarea>
+  <button class="btn ghost">Kirim</button>
+
+  <!-- ADMIN LOGIN TERSEMBUNYI -->
+  <div id="adminLogin" class="hidden">
+    <input id="adminUser" placeholder="Username">
+    <input id="adminPass" type="password" placeholder="Password">
+    <button id="adminLoginBtn" class="btn primary">Internal Access</button>
+  </div>
+</section>
+
+<section id="adminPanel" class="card hidden">
+  <h2>Admin Panel</h2>
+  <input id="pname" placeholder="Nama Produk">
+  <input id="pprice" type="number" placeholder="Harga USD">
+  <textarea id="pdesc" placeholder="Deskripsi"></textarea>
+  <textarea id="pcode" placeholder="Kode (PHP/JS/etc)"></textarea>
+  <input id="pimg" type="file" accept="image/*">
+  <button id="addProductBtn" class="btn primary">Publish Produk</button>
+</section>
+
+</main>
+
+<!-- CART + CHECKOUT -->
+<div id="cartModal" class="modal hidden">
+  <div class="modalBox animate">
+
+    <button class="close" onclick="closeCart()">✕</button>
+
+    <!-- STEP 1 -->
+    <div id="stepCart">
+      <h3>Keranjang</h3>
+      <div id="cartItems"></div>
+      <button class="btn primary" onclick="goCheckout()">Checkout</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="stepPay" class="hidden">
+      <h3>Pembayaran</h3>
+
+      <div class="payBox">
+        <i class="fa-brands fa-bitcoin"></i>
+        <p id="btcAddr"></p>
+        <button onclick="copyAddr('btc')">Salin BTC</button>
+      </div>
+
+      <div class="payBox">
+        <i class="fa-brands fa-ethereum"></i>
+        <p id="ethAddr"></p>
+        <button onclick="copyAddr('eth')">Salin ETH</button>
+      </div>
+
+      <p class="soft small">Setelah transfer, simpan TXID</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>support by HAMZAH.CORP STORE</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
