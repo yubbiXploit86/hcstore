@@ -1,2 +1,0 @@
-# hcstore
-hcstore
